@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">Accueil</a>
+    <a href="login.html">Logout</a>
+  </header>
+  <main>
+    <h1>Dashboard Utilisateur</h1>
+    <p>Bienvenue, <span id="username">Player</span></p>
+    <div id="servers"></div>
+  </main>
+  <script>
+    // fetch servers from backend
+    fetch('http://localhost:3000/api/servers')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('servers');
+        container.innerHTML = '<h2>Serveurs :</h2>' + data.map(s => 
+          `<p>${s.displayName} - ${s.currentPlayers}/${s.maxPlayers}</p>`).join('');
+      });
+  </script>
+</body>
+</html>
