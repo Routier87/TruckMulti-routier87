@@ -1,0 +1,4 @@
+# static.yml
+build:
+  command: echo "No build, static HTML site"
+publish: .
