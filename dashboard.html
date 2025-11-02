@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +18,6 @@
     <div id="servers"></div>
   </main>
   <script>
-    // fetch servers from backend
     fetch('http://localhost:3000/api/servers')
       .then(r => r.json())
       .then(data => {
