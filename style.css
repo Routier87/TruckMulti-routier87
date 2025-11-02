@@ -1,9 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #1b1b1b url("assets/bg-road.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #f2f2f2;
+}
 
-body { font-family: Arial, sans-serif; margin:0; padding:0; }
-header { background:#222; color:#fff; padding:10px; display:flex; align-items:center; justify-content:space-between; }
-header a { color:#fff; margin:0 10px; text-decoration:none; }
-header img.logo { height:40px; }
-main { padding:20px; }
-h1 { color:#222; }
-.btn { display:inline-block; padding:10px 20px; background:#007bff; color:#fff; text-decoration:none; border-radius:5px; margin-top:10px; }
-.btn:hover { background:#0056b3; }
+header {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+nav a {
+  color: #f2f2f2;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #00aaff;
+}
+
+main {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  width: 80%;
+  margin: 40px auto;
+}
+
+h1 {
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0056b3;
+}

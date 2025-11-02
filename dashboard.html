@@ -8,8 +8,12 @@
 </head>
 <body>
   <header>
-    <a href="index.html">Accueil</a>
-    <a href="login.html">Logout</a>
+    <img src="assets/logo-clone.png" alt="Logo TruckersMP Clone" class="logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="login.html">Logout</a>
+      <a href="partenaires.html">Partenaires</a>
+    </nav>
   </header>
   <main>
     <h1>Dashboard Utilisateur</h1>
@@ -20,32 +24,26 @@
     <h2>Serveurs</h2>
     <div id="servers"></div>
   </main>
-
   <script>
-    // Stocke token dans localStorage après login via Steam (copier manuellement pour le test)
     const token = localStorage.getItem('jwtToken');
-
     async function loadUser(){
       if(!token) return;
-      const res = await fetch('http://localhost:3000/api/users/1', {  // remplacer 1 par ton userId ou decode JWT côté frontend
-        headers: { Authorization: 'Bearer ' + token }
-      });
+      const res = await fetch('http://localhost:3000/api/users/1', { headers: { Authorization: 'Bearer ' + token } });
+      if(!res.ok) return;
       const user = await res.json();
-      document.getElementById('username').innerText = user.username;
+      document.getElementById('username').innerText = user.username || 'Player';
       if(user.profile?.avatarUrl){
         const img = document.getElementById('avatar');
         img.src = user.profile.avatarUrl;
         img.style.display = 'block';
       }
     }
-
     async function loadServers(){
       const res = await fetch('http://localhost:3000/api/servers');
       const data = await res.json();
       const container = document.getElementById('servers');
       container.innerHTML = data.map(s => `<p>${s.displayName} - ${s.currentPlayers}/${s.maxPlayers} (${s.status})</p>`).join('');
     }
-
     loadUser();
     loadServers();
   </script>

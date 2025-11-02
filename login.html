@@ -8,25 +8,28 @@
 </head>
 <body>
   <header>
-    <a href="index.html">Retour à l'accueil</a>
+    <img src="assets/logo-clone.png" alt="Logo TruckersMP Clone" class="logo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="login.html">Login</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="partenaires.html">Partenaires</a>
+    </nav>
   </header>
   <main>
     <h1>Connexion</h1>
     <p>Connectez-vous via Steam :</p>
-    <!-- Bouton Steam -->
     <a class="btn" href="http://localhost:3000/auth/steam" target="_blank">Login avec Steam</a>
-
     <p>Ou test local :</p>
     <input type="text" placeholder="User ID" id="userIdInput"/>
     <button id="getTokenBtn">Obtenir Token</button>
     <pre id="tokenDisplay"></pre>
   </main>
-
   <script>
     document.getElementById('getTokenBtn').onclick = async () => {
       const userId = document.getElementById('userIdInput').value;
       if(!userId) return alert("Entrez un user ID");
-      const res = await fetch(`http://localhost:3000/api/auth/token`, {
+      const res = await fetch('http://localhost:3000/api/auth/token', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({userId})

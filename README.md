@@ -1,26 +1,17 @@
+# TruckersMP Clone - Static + Backend
 
-# TruckersMP Clone - Site Statique
+Ce dépôt contient le site statique et un exemple backend Node.js pour authentification Steam (passport-steam).
 
-Ce dépôt contient un site statique inspiré de TruckersMP pour démo ou usage personnel.
+## Démarrage rapide (backend)
 
-## Structure
+1. Copier `backend/.env.example` -> `backend/.env` et remplir les valeurs (STEAM_API_KEY, SESSION_SECRET, JWT_SECRET).
+2. Dans le dossier `backend` :
+```
+npm install
+npm run dev
+```
 
-- `index.html` : page d'accueil
-- `login.html` : page de connexion (Steam ou test local)
-- `dashboard.html` : tableau de bord utilisateur
-- `partenaires.html` : page des partenaires
-- `style.css` : styles communs
-- `assets/` : images et icônes
-- `static.yml` : configuration pour hébergement statique (Netlify, Render, etc.)
+Le backend écoute sur http://localhost:3000
 
-## Instructions
-
-1. Placer tous les fichiers sur un serveur web statique (Apache, Nginx, Netlify, Vercel...).
-2. Ouvrir `index.html` pour commencer.
-3. Les pages `dashboard.html` et `login.html` peuvent se connecter à un backend (optionnel) via l'API REST.
-
-## Personnalisation
-
-- Remplacer les images dans `assets/` par vos logos et images réelles.
-- Modifier `style.css` pour ajuster l'apparence.
-- Mettre à jour les liens dans les fichiers HTML selon vos besoins.
+## Site statique
+Ouvrir `index.html` dans un navigateur ou servir le dossier via un simple serveur web.
